@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <Div class="relojdigital">
+        <span>Reloj Digital</span>
+    </Div>
+    <div id="reloj"></div>
+    
+    <script>
+        // funciom para optener la hora actual en formato HH: MM: SS 
+        function horaActual() {
+            var ahora = new Date();
+            var horas = ahora.getHours().toString().padStart(2, "0");
+            var minutos = ahora.getMinutes().toString().padStart(2, "0");
+            var segundos = ahora.getSeconds().toString().padStart(2, "0");
+            return horas + ":" + minutos + ":" + segundos;
+         }
+
+        // funcion para actualizar el contenido del reloj 
+        function actualizarHora() {
+            var reloj = document.getElementById("reloj");
+            reloj.textContent = horaActual();
+        }
+
+        // actualiza el reloj cada segundo 
+        setInterval(actualizarHora, 1000)
+
+        // iniciar  el reloj al cargar la pagina
+        actualizarHora();
+
+    </script>
+</body>
+</html>
